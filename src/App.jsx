@@ -14,7 +14,7 @@ const App = () => {
   };
   return (
     <section className="section-center">
-      <h4>Tired of Boring Lorem Ipsum?</h4>
+      <h4>Hipster Text Generator :{')'}</h4>
       <form className="lorem-form" onSubmit={handleSubmit}>
         <label htmlFor="amount">paragraphs:</label>
         <input
