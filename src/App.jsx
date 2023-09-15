@@ -6,32 +6,37 @@ const App = () => {
   const [count, setCount] = useState(1);
   const [textArray, setTextArray] = useState([]);
   const handleChange = (e) => {
-    if (e.target.value < 0 || e.target.value > 8) return;
     setCount(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTextArray(text.slice(0, count));
+    setTextArray(text.slice(0, parseInt(count)));
   };
   return (
-    <>
-      <h2>Lorem Ipsum Starter</h2>
-      <form onSubmit={handleSubmit}>
+    <section className="section-center">
+      <h4>Tired of Boring Lorem Ipsum?</h4>
+      <form className="lorem-form" onSubmit={handleSubmit}>
+        <label htmlFor="amount">paragraphs:</label>
         <input
           type="number"
-          name="number"
-          id="number"
+          name="amount"
+          id="amount"
+          min={1}
+          max={8}
+          step={1}
           value={count}
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button type="submit" className="btn">
+          Submit
+        </button>
       </form>
-      <section>
+      <article className="lorem-text">
         {textArray.map((textArr) => {
-          return <article key={nanoid()}>{textArray}</article>;
+          return <p key={nanoid()}>{textArray}</p>;
         })}
-      </section>
-    </>
+      </article>
+    </section>
   );
 };
 export default App;
